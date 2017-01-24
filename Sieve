@@ -1,0 +1,31 @@
+import java.util.*;
+public class p183ex7 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner input = new Scanner (System.in);
+		
+		int N = input.nextInt();
+
+        // initially assume all integers are prime
+        int [] Prime = new int [N + 1];
+        for (int i = 2; i <= N; i++) {
+            Prime[i] = 1;
+        }
+        
+        
+        for (int i = 2; i*i <= N; i++) {
+
+            if (Prime [i] ==1) {
+                for (int j = i; i*j <= N; j++) {
+                    Prime[i*j] = 0;
+                }
+            }
+        }
+ 
+        for(int i = 1; i<=N;i++)
+        	System.out.println(Prime[i]);
+
+	}
+
+}
